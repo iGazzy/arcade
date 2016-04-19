@@ -10,6 +10,7 @@ int gameon =1;
 int x =-200, y, speed=0;
 int gamespeed = 6;
 int birdjump = -20;
+int score =0;
 
 //walls
 int[] wallx = new int[2];
@@ -36,8 +37,15 @@ void draw(){
         wally[i] = (int)random(200, height-200);
         wallx[i] = width;
       }//end if
+      
+      //increment score
+      if(wallx[i] == width/2){
+        score++;
+      }//end if score++
+      
       wallx[i] -= gamespeed; //makes the wall move
     }//end for
+    text("Score: " + score, width/2-15, 700);
   }//end if
   else{
     imageMode(CENTER);
