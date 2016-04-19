@@ -46,4 +46,9 @@ void draw(){
 }//end draw
 void mousePressed(){
   speed = birdjump;//bounces bird back up
+  
+  if(gameon == 1){
+    wallx[0] = 600;
+    wally[0] = height/2;
+  }//end if
 }//end mousePressed
