@@ -17,70 +17,71 @@ int highscore;
 int[] wallx = new int[2];
 int[] wally = new int[2];
 
-void setup(){
-  size(600,800);
+void setup() {
+  size(600, 800);
 }//end setup
 
-void draw(){  
-  if (gameon == 0){
+void draw() {  
+  if (gameon == 0) {
     imageMode(CORNER);
-    image(background,x,0);
-    
+    image(background, x, 0);
+
     image(bird, width/2, y);
     x-=gamespeed;//makes background move
     speed +=1;//gravity for bird to fall down
     y+=speed;//bird is affected by the gravity here
-    
+
     //infinate background loop
-    if(x < -1200){
+    if (x < -1200) {
       x = 0;
     }//end if
-    
-    for (int i=0; i< 2; i++){ // i<2 because 2 walls
-    imageMode(CENTER);
+
+    for (int i=0; i< 2; i++) { // i<2 because 2 walls
+      imageMode(CENTER);
       image(wall, wallx[i], wally[i] - (wall.height/2+100));//adds a space in wall
       image(wall, wallx[i], wally[i] + (wall.height/2+100));//adds a space in wall
-      if (wallx[i] < 0){
+      if (wallx[i] < 0) {
         wally[i] = (int)random(200, height-200);
         wallx[i] = width;
       }//end if
-      
+
       //increment score
-      if(wallx[i] == width/2){
+      if (wallx[i] == width/2) {
         score++;
         highscore = max(score, highscore);
       }//end if score++
-      
+
       //collision
-      if(y > height || y < 0 || (abs(width/2-wallx[i])<25 && abs(y-wally[i])>100)){ 
+      if (y > height || y < 0 || (abs(width/2-wallx[i])<25 && abs(y-wally[i])>100)) { 
         gameon=1;
+        score=0;
       }
-      
-      
+
+
       wallx[i] -= gamespeed; //makes the wall move
     }//end for
     text("Score: " + score, width/2-15, 700);
   }//end if
-  else{
+  else {
     imageMode(CENTER);
     image(menu, width/2, height/2);
     text("High Score: "+highscore, 50, width);
   }//end else
 }//end draw
-void mousePressed(){
+void mousePressed() {
   speed = birdjump;//bounces bird back up
-  
-  if(gameon == 1){
+
+    if (gameon == 1) {
     //set starting bird pos
     x=0;
     y=height/2;
-    
+
     //set starting wall pos
     wallx[0] = 600;
     wally[0] = 300;
     wallx[1] = 900;
     wally[1] = 200;
-    
+
     //click to play
     gameon = 0;
   }//end if
