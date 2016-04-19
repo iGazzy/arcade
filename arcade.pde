@@ -8,8 +8,8 @@ PImage menu = loadImage("http://i.imgur.com/YhJjXhc.png");
 
 int gameon =1;
 int x =-200, y, speed=0;
-int gamespeed = 6;
-int birdjump = -20;
+int gamespeed = 3;
+int birdjump = -12;
 int score =0;
 
 //walls
@@ -42,6 +42,12 @@ void draw(){
       if(wallx[i] == width/2){
         score++;
       }//end if score++
+      
+      //collision
+      if(y > height || y < 0){ //if bird flies too high or low
+        gameon=1;
+      }
+      
       
       wallx[i] -= gamespeed; //makes the wall move
     }//end for
