@@ -7,17 +7,21 @@ PImage wall = loadImage("http://i.imgur.com/xdOeQ8U.png");
 PImage menu = loadImage("http://i.imgur.com/YhJjXhc.png");
 
 int gameon =0;
-int x, y, speed;
+int x =-200, y, speed=0;
 
 void setup(){
   size(600,800);
-  imageMode(CENTER);
-  image(menu, width/2, height/2);
 }//end setup
 
-void draw(){
+void draw(){  
   if (gameon == 0){
+    imageMode(CORNER);
+    image(background,x,0);
+    
     image(bird, width/2, y);
+    x-=6;//makes background move
+    speed +=1;//gravity
+    y+=speed;//birds gravity
   }//end if
   else{
     imageMode(CENTER);
