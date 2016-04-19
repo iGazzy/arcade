@@ -45,7 +45,7 @@ void draw(){
       }//end if score++
       
       //collision
-      if(y > height || y < 0){ //if bird flies too high or low
+      if(y > height || y < 0 || (abs(width/2-wallx[i])<25 && abs(y-wally[i])>100)){ 
         gameon=1;
       }
       
