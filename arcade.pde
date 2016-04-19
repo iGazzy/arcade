@@ -68,9 +68,9 @@ void mousePressed(){
     
     //set starting wall pos
     wallx[0] = 600;
-    wally[0] = height/2;
+    wally[0] = 100;
     wallx[1] = 900;
-    wally[1] = 600;
+    wally[1] = 100;
     
     //click to play
     gameon = 0;
