@@ -26,7 +26,7 @@ void draw() {
     imageMode(CORNER);
     image(background, x, 0);
 
-    image(bird, width/2, y);
+    
     x-=gamespeed;//makes background move
     speed +=1;//gravity for bird to fall down
     y+=speed;//bird is affected by the gravity here
@@ -60,11 +60,17 @@ void draw() {
 
       wallx[i] -= gamespeed; //makes the wall move
     }//end for
+    
+    image(bird, width/2, y); //bird below other objects so it's positioning is better
+    
+    
     text("Score: " + score, width/2-15, 700);
   }//end if
   else {
     imageMode(CENTER);
     image(menu, width/2, height/2);
+    textSize(32);
+    fill(0);
     text("High Score: "+highscore, 50, width);
   }//end else
 }//end draw
