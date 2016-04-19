@@ -6,7 +6,7 @@ PImage bird = loadImage("http://i.imgur.com/m7K0puc.png");
 PImage wall = loadImage("http://i.imgur.com/xdOeQ8U.png");
 PImage menu = loadImage("http://i.imgur.com/YhJjXhc.png");
 
-int gameon =0;
+int gameon =1;
 int x =-200, y, speed=0;
 int gamespeed = 6;
 int birdjump = -20;
@@ -50,5 +50,9 @@ void mousePressed(){
   if(gameon == 1){
     wallx[0] = 600;
     wally[0] = height/2;
+    wallx[1] = 900;
+    wally[1] = 600;
+    
+    gameon = 0;
   }//end if
 }//end mousePressed
