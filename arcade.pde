@@ -30,6 +30,7 @@ void draw(){
     speed +=1;//gravity for bird to fall down
     y+=speed;//bird is affected by the gravity here
     
+    //infinate background loop
     if(x < -1200){
       x = 0;
     }//end if
