@@ -48,11 +48,17 @@ void mousePressed(){
   speed = birdjump;//bounces bird back up
   
   if(gameon == 1){
+    //set starting bird pos
+    x=0;
+    y=height/2;
+    
+    //set starting wall pos
     wallx[0] = 600;
     wally[0] = height/2;
     wallx[1] = 900;
     wally[1] = 600;
     
+    //click to play
     gameon = 0;
   }//end if
 }//end mousePressed
