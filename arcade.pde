@@ -11,6 +11,7 @@ int x =-200, y, speed=0;
 int gamespeed = 3;
 int birdjump = -12;
 int score =0;
+int highscore;
 
 //walls
 int[] wallx = new int[2];
@@ -47,6 +48,7 @@ void draw(){
       //increment score
       if(wallx[i] == width/2){
         score++;
+        highscore = max(score, highscore);
       }//end if score++
       
       //collision
@@ -62,6 +64,7 @@ void draw(){
   else{
     imageMode(CENTER);
     image(menu, width/2, height/2);
+    text("High Score: "+highscore, 50, width);
   }//end else
 }//end draw
 void mousePressed(){
